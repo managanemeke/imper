@@ -6,6 +6,9 @@
 			"Packages" : [
 				{
 					"PackageIdentifier": "Gyan.FFmpeg"
+				},
+				{
+					"PackageIdentifier": "Git.Git"
 				}
 			],
 			"SourceDetails" :
