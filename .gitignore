@@ -2,3 +2,5 @@
 !/.gitignore
 !/file.bat
 !/install_file.bat
+!/packages.json
+!/readme.md
