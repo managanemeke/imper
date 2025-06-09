@@ -27,7 +27,7 @@ EXIT /B 0
 :generate_mp4_video
 SET input=%~1
 SET output=%~2
-"%path%ffmpeg" ^
+"ffmpeg" ^
   -loop 1 -i "%input%" ^
   -vf "fade=in:st=0:d=5, fade=out:st=55:d=5" ^
   -c:v h264 -t 60 ^
