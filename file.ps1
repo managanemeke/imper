@@ -2,13 +2,15 @@
     [string]$inputFile
 )
 
+Add-Type -AssemblyName System.Drawing
+
 function ConvertTo-Mp4Video {
     param($inputPath, $outputPath, $duration, $fadeIn, $fadeOut)
     $fadeOutStart = [int]$duration - [int]$fadeOut
 
     & ffmpeg -loop 1 -i $inputPath `
          -vf "fade=in:st=0:d=$fadeIn, fade=out:st=${fadeOutStart}:d=$fadeOut" `
-         -c:v h264 -t 60 `
+         -c:v h264 -t $duration `
          -pix_fmt yuv420p `
          "$outputPath" `
          -y
@@ -29,6 +31,21 @@ function ConvertTo-Mp4VideoFromImage {
 
     $extension = Get-ExtensionWithoutDot $inputPath
     if (@("png", "jpg", "jpeg") -contains $extension) {
+        $image = [System.Drawing.Image]::FromFile($inputPath);
+        $width = $image.Width
+        $height = $image.Height
+        $dimension = "${width}x${height}"
+
+        if (
+            $dimension -eq "1408x576" -or $dimension -eq "3200x1344"
+        ) {
+            ConvertTo-Mp4Video $inputPath $outputPath 65 8 8
+            return
+        }
+        if ($dimension -eq "2368x640") {
+            ConvertTo-Mp4Video $inputPath $outputPath 60 8 8
+            return
+        }
         ConvertTo-Mp4Video $inputPath $outputPath 60 6 6
     }
 }
