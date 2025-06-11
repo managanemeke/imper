@@ -29,7 +29,7 @@ function ConvertTo-Mp4VideoFromImage {
 
     $extension = Get-ExtensionWithoutDot $inputPath
     if (@("png", "jpg", "jpeg") -contains $extension) {
-        ConvertTo-Mp4Video $inputPath $outputPath 60 5 5
+        ConvertTo-Mp4Video $inputPath $outputPath 60 6 6
     }
 }
 
