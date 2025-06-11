@@ -5,7 +5,7 @@
 $scriptPath = $PSScriptRoot
 $name = "Ночная статика"
 $position = "Bottom"
-$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`%1`""
+$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
 
 function Add-Reg {
     param($path, $arguments)
@@ -30,7 +30,7 @@ function Add-RegFolder {
 function Add-ContextMenuItemForType {
     param($type)
 
-    $path = "HKCR\SystemFileAssociations\$type\shell\$name"
+    $path = "HKCR\$type\shell\$name"
     $commandPath = "$path\command"
 
     Add-RegFolder $path
@@ -40,6 +40,4 @@ function Add-ContextMenuItemForType {
     Add-RegDefaultEntry $commandPath $command
 }
 
-Add-ContextMenuItemForType ".png"
-Add-ContextMenuItemForType ".jpg"
-Add-ContextMenuItemForType ".jpeg"
+Add-ContextMenuItemForType "*"
