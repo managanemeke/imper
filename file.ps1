@@ -3,14 +3,15 @@
 )
 
 function ConvertTo-Mp4Video {
-    param($inputPath, $outputPath)
+    param($inputPath, $outputPath, $duration, $fadeIn, $fadeOut)
+    $fadeOutStart = [int]$duration - [int]$fadeOut
 
     & ffmpeg -loop 1 -i $inputPath `
-             -vf "fade=in:st=0:d=5, fade=out:st=55:d=5" `
-             -c:v h264 -t 60 `
-             -pix_fmt yuv420p `
-             "$outputPath" `
-             -y
+         -vf "fade=in:st=0:d=$fadeIn, fade=out:st=${fadeOutStart}:d=$fadeOut" `
+         -c:v h264 -t 60 `
+         -pix_fmt yuv420p `
+         "$outputPath" `
+         -y
 }
 
 function Get-ExtensionWithoutDot {
@@ -28,7 +29,7 @@ function ConvertTo-Mp4VideoFromImage {
 
     $extension = Get-ExtensionWithoutDot $inputPath
     if (@("png", "jpg", "jpeg") -contains $extension) {
-        ConvertTo-Mp4Video $inputPath $outputPath
+        ConvertTo-Mp4Video $inputPath $outputPath 60 5 5
     }
 }
 
