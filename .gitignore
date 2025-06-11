@@ -1,6 +1,6 @@
 *
 !/.gitignore
-!/file.bat
-!/install_file.bat
+!/file.ps1
+!/install_file.ps1
 !/packages.json
 !/readme.md

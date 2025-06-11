@@ -11,7 +11,7 @@ winget import --import-file "packages.json" --accept-package-agreements --accept
 ### menu
 
 ```shell
-Start-Process "cmd.exe" -ArgumentList "/c", "install_file.bat"
+Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PWD\install_file.ps1`"" -Verb RunAs
 ```
 
 ### structures
