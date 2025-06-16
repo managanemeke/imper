@@ -9,6 +9,9 @@
 				},
 				{
 					"PackageIdentifier": "Git.Git"
+				},
+				{
+					"PackageIdentifier": "Python.Python.3.13"
 				}
 			],
 			"SourceDetails" :
