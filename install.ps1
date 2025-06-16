@@ -7,6 +7,7 @@ Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File
 & ffmpeg
 & git --version
 & python --version
+& 7z
 [System.Console]::ReadKey()
 
 & git clone https://github.com/managanemeke/meeseeks-box-structures.git structures

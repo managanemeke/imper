@@ -12,6 +12,9 @@
 				},
 				{
 					"PackageIdentifier": "Python.Python.3.13"
+				},
+				{
+					"PackageIdentifier": "7zip.7zip"
 				}
 			],
 			"SourceDetails" :
