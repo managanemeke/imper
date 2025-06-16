@@ -1,6 +1,7 @@
 *
 !/.gitignore
 !/file.ps1
+!/install.ps1
 !/install_file.ps1
 !/packages.json
 !/readme.md
