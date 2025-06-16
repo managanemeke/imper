@@ -4,7 +4,7 @@
 
 - win + s -> `powershell`
 - right click -> run with admin rights
-- `cd "C:\ProgramData\maer\imperson"`
+- `cd "C:\ProgramData\maer\imper"`
 - `./install.ps1`
 
 ## test
