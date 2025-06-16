@@ -1,4 +1,4 @@
-# impersonal
+# imper
 
 ## install
 
