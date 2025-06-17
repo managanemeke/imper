@@ -4,7 +4,7 @@
 
 - win + s -> `powershell`
 - right click -> run with admin rights
-- `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser`
+- `Set-ExecutionPolicy Bypass -Scope LocalMachine`
 - `cd "C:\ProgramData\maer\imper"`
 - `./install_winget.ps1`
 - `exit`
