@@ -5,8 +5,7 @@
 - win + s -> `powershell`
 - right click -> run with admin rights
 - `Set-ExecutionPolicy Bypass`
-- `cd "C:\ProgramData\maer\imper"`
-- `./install_winget.ps1`
+- `Install-Module -Name Microsoft.WinGet.Client`
 - `exit`
 - win + s -> `powershell`
 - `cd "C:\ProgramData\maer\imper"`
