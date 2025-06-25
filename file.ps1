@@ -4,12 +4,16 @@
 
 Add-Type -AssemblyName System.Drawing
 
+$scriptPath = $PSScriptRoot
+
+$structures = Import-Csv -Path "$scriptPath\structures\structures.csv" -Delimiter ";"
+
 function ConvertTo-Mp4Video {
-    param($inputPath, $outputPath, $duration, $fadeIn, $fadeOut)
-    $fadeOutStart = [int]$duration - [int]$fadeOut
+    param($inputPath, $outputPath, $duration, $fade_in, $fade_out)
+    $fadeOutStart = [int]$duration - [int]$fade_out
 
     & ffmpeg -loop 1 -i "$inputPath" `
-         -vf "fade=in:st=0:d=$fadeIn, fade=out:st=${fadeOutStart}:d=$fadeOut" `
+         -vf "fade=in:st=0:d=$fade_in, fade=out:st=${fadeOutStart}:d=$fade_out" `
          -c:v h264 -t $duration `
          -pix_fmt yuv420p `
          "$outputPath" `
@@ -36,17 +40,18 @@ function ConvertTo-Mp4VideoFromImage {
         $height = $image.Height
         $dimension = "${width}x${height}"
 
-        if (
-            $dimension -eq "1408x576" -or $dimension -eq "3200x1344"
-        ) {
-            ConvertTo-Mp4Video "$inputPath" "$outputPath" 65 8 8
+        $structure = $structures | Where-Object {
+            [int]$_.width -eq $width -and [int]$_.height -eq $height
+        } | Select-Object -First 1
+
+        if ($structure) {
+            if ([int]$structure.has_night_mode -eq 0) {
+                return
+            }
+
+            ConvertTo-Mp4Video "$inputPath" "$outputPath" $structure.duration $structure.fade_in $structure.fade_out
             return
         }
-        if ($dimension -eq "2368x640") {
-            ConvertTo-Mp4Video "$inputPath" "$outputPath" 60 8 8
-            return
-        }
-        ConvertTo-Mp4Video "$inputPath" "$outputPath" 60 6 6
     }
 }
 
