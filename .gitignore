@@ -1,6 +1,8 @@
 *
 !/structures
 !/.gitignore
+!/.gitmodules
+!/check_dependencies.ps1
 !/file.ps1
 !/install.ps1
 !/install_file.ps1
