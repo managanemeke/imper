@@ -30,3 +30,11 @@ https --download "https://placehold.co/1408x576/jpg" --output "1408x576.jpg"
 ```shell
 ./file.ps1 "1408x576.jpg"
 ```
+
+## update
+
+### structures
+
+```shell
+git submodule update --init --remote --merge -- structures
+```
