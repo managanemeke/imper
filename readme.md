@@ -1,5 +1,11 @@
 # imper
 
+## clone
+
+```shell
+git clone --recursive git@github.com:managanemeke/imper.git
+```
+
 ## install
 
 - win + s -> `powershell`

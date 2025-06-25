@@ -1,0 +1,3 @@
+[submodule "structures"]
+	path = structures
+	url = git@github.com:managanemeke/meeseeks-box-structures.git
