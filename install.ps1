@@ -1,4 +1,4 @@
-﻿& winget import --import-file "packages.json" --accept-package-agreements --accept-source-agreements
+﻿Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PWD\install_dependencies.ps1`""
 
 Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PWD\install_file.ps1`"" -Verb RunAs
 
