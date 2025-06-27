@@ -38,17 +38,12 @@ function ConvertTo-Mp4VideoFromImage {
         $image = [System.Drawing.Image]::FromFile($inputPath);
         $width = $image.Width
         $height = $image.Height
-        $dimension = "${width}x${height}"
 
         $structure = $structures | Where-Object {
-            [int]$_.width -eq $width -and [int]$_.height -eq $height
+            [int]$_.width -eq $width -and [int]$_.height -eq $height -and [int]$_.has_night_mode -eq 1
         } | Select-Object -First 1
 
         if ($structure) {
-            if ([int]$structure.has_night_mode -eq 0) {
-                return
-            }
-
             ConvertTo-Mp4Video "$inputPath" "$outputPath" $structure.duration $structure.fade_in $structure.fade_out
             return
         }
