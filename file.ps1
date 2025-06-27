@@ -89,6 +89,24 @@ function Show-StructureSelectionDialog {
     return $null
 }
 
+function Measure-HaveStructuresSameNightMode {
+    param($structures)
+
+    if ($structures.Count -le 1) {
+        return $true
+    }
+
+    $first = $structures[0]
+    foreach ($structure in $structures) {
+        if ($structure.duration -ne $first.duration -or
+                $structure.fade_in -ne $first.fade_in -or
+                $structure.fade_out -ne $first.fade_out) {
+            return $false
+        }
+    }
+    return $true
+}
+
 function ConvertTo-Mp4VideoFromImage {
     param($inputPath, $outputPath)
 
@@ -105,7 +123,7 @@ function ConvertTo-Mp4VideoFromImage {
         if ($matchingStructures.Count -eq 0) {
             return
         }
-        elseif ($matchingStructures.Count -eq 1) {
+        elseif ((Measure-HaveStructuresSameNightMode $matchingStructures)) {
             $selectedStructure = $matchingStructures[0]
         }
         else {
