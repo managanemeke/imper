@@ -2,7 +2,7 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 [Console]::InputEncoding = [System.Text.Encoding]::UTF8
 
-$scriptPath = $PSScriptRoot
+$applicationRoot = $PSScriptRoot
 
 function Add-Reg {
     param($path, $arguments)
@@ -72,12 +72,12 @@ Add-ContextMenuCommand $root $imperCommandName "Незам" "Bottom" "true" ""
 
 $imperCommandPath = Get-ChildShellPath $root $imperCommandName
 
-$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
+$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$applicationRoot\file.ps1`" `"`"`%1`"`""
 Add-ContextMenuCommand $imperCommandPath "1_1_nightify" "Заночевать" "" "false" $command
 
 Add-ContextMenuCommand $imperCommandPath "1_2_compress" "Сжать" "" "false" ""
 
 Add-ContextMenuCommand $imperCommandPath "2_1_configure" "Настроить" "" "false" ""
 
-$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\commands\2_2_update\void.ps1`""
+$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$applicationRoot\commands\2_2_update\void.ps1`""
 Add-ContextMenuCommand $imperCommandPath "2_2_update" "Обновить" "" "false" $command
