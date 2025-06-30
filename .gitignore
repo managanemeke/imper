@@ -7,6 +7,7 @@
 !/.gitignore
 !/.gitmodules
 !/check_dependencies.ps1
+!/explorer.file.menu.yaml
 !/file.ps1
 !/install.ps1
 !/install_dependencies.ps1

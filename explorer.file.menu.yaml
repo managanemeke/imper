@@ -1,0 +1,32 @@
+root: "HKCR\*"
+commands:
+  imper:
+    title: "Незам"
+    position: Bottom
+    hasSubCommands: true
+    commands:
+      1_1_nightify:
+        title: "Заночевать"
+        command: >
+          "$((Get-Command powershell).Source)"
+          -NoProfile
+          -ExecutionPolicy
+          Bypass
+          -File
+          "$applicationRoot\file.ps1"
+          "%1"
+      1_2_compress:
+        title: "Сжать"
+        command: ""
+      2_1_configure:
+        title: "Настроить"
+        command: ""
+      2_2_update:
+        title: "Обновить"
+        command: >
+          "$((Get-Command powershell).Source)"
+          -NoProfile
+          -ExecutionPolicy
+          Bypass
+          -File
+          "$applicationRoot\commands\2_2_update\void.ps1"
