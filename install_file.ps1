@@ -68,4 +68,4 @@ function Add-ContextMenuCommand {
 Add-ContextMenuCommand "HKCR\*" "imper" "Незам" "Bottom" "true" ""
 
 $command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
-Add-ContextMenuCommand "HKCR\*\shell\imper" "Ночная статика" "Ночная статика" "Bottom" "false" $command
+Add-ContextMenuCommand "HKCR\*\shell\imper" "1_1_nightify" "Ночная статика" "" "false" $command
