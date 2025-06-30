@@ -5,16 +5,20 @@
 		{
 			"Packages" : [
 				{
-					"PackageIdentifier": "Gyan.FFmpeg"
+					"PackageIdentifier": "Gyan.FFmpeg",
+					"Version" : "7.1.1"
 				},
 				{
-					"PackageIdentifier": "Git.Git"
+					"PackageIdentifier": "Git.Git",
+					"Version" : "2.50.0"
 				},
 				{
-					"PackageIdentifier": "Python.Python.3.13"
+					"PackageIdentifier": "Python.Python.3.13",
+					"Version" : "3.13.5"
 				},
 				{
-					"PackageIdentifier": "7zip.7zip"
+					"PackageIdentifier": "7zip.7zip",
+					"Version" : "24.09"
 				}
 			],
 			"SourceDetails" :
