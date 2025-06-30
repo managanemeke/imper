@@ -1,4 +1,8 @@
 *
+!/commands/
+!/commands/*/
+!/commands/*/.gitignore
+!/commands/*/*.ps1
 !/structures
 !/.gitignore
 !/.gitmodules
