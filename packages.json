@@ -9,6 +9,10 @@
 					"Version" : "24.09"
 				},
 				{
+					"PackageIdentifier" : "HTTPie.HTTPie",
+					"Version" : "2025.2.0"
+				},
+				{
 					"PackageIdentifier": "Gyan.FFmpeg",
 					"Version" : "7.1.1"
 				},
