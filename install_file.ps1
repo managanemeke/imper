@@ -65,14 +65,19 @@ function Add-ContextMenuCommand {
     }
 }
 
-Add-ContextMenuCommand "HKCR\*" "imper" "Незам" "Bottom" "true" ""
+$root = "HKCR\*"
+$imperCommandName = "imper"
+
+Add-ContextMenuCommand $root $imperCommandName "Незам" "Bottom" "true" ""
+
+$imperCommandPath = Get-ChildShellPath $root $imperCommandName
 
 $command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
-Add-ContextMenuCommand "HKCR\*\shell\imper" "1_1_nightify" "Заночевать" "" "false" $command
+Add-ContextMenuCommand $imperCommandPath "1_1_nightify" "Заночевать" "" "false" $command
 
-Add-ContextMenuCommand "HKCR\*\shell\imper" "1_2_compress" "Сжать" "" "false" ""
+Add-ContextMenuCommand $imperCommandPath "1_2_compress" "Сжать" "" "false" ""
 
-Add-ContextMenuCommand "HKCR\*\shell\imper" "2_1_configure" "Настроить" "" "false" ""
+Add-ContextMenuCommand $imperCommandPath "2_1_configure" "Настроить" "" "false" ""
 
 $command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\commands\2_2_update\void.ps1`""
-Add-ContextMenuCommand "HKCR\*\shell\imper" "2_2_update" "Обновить" "" "false" $command
+Add-ContextMenuCommand $imperCommandPath "2_2_update" "Обновить" "" "false" $command
