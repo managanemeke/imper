@@ -65,7 +65,7 @@ function Add-ContextMenuCommand {
     }
 }
 
-$root = "HKCR\*"
+$root = "HKCR\.386"
 $imperCommandName = "imper"
 
 Add-ContextMenuCommand $root $imperCommandName "Незам" "Bottom" "true" ""
