@@ -69,3 +69,10 @@ Add-ContextMenuCommand "HKCR\*" "imper" "Незам" "Bottom" "true" ""
 
 $command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
 Add-ContextMenuCommand "HKCR\*\shell\imper" "1_1_nightify" "Ночная статика" "" "false" $command
+
+Add-ContextMenuCommand "HKCR\*\shell\imper" "1_2_compress" "Сжать" "" "false" ""
+
+Add-ContextMenuCommand "HKCR\*\shell\imper" "2_1_configure" "Настроить" "" "false" ""
+
+$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\commands\2_2_update\void.ps1`""
+Add-ContextMenuCommand "HKCR\*\shell\imper" "2_2_update" "Обновить" "" "false" $command
