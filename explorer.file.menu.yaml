@@ -1,4 +1,4 @@
-﻿root: HKCR\.386
+﻿root: HKCR\*
 commands:
   imper:
     title: Незам
