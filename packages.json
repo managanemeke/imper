@@ -19,6 +19,10 @@
 				{
 					"PackageIdentifier": "7zip.7zip",
 					"Version" : "24.09"
+				},
+				{
+					"PackageIdentifier" : "Oven-sh.Bun",
+					"Version" : "1.2.17"
 				}
 			],
 			"SourceDetails" :
