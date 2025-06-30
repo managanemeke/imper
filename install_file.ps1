@@ -27,17 +27,51 @@ function Add-RegFolder {
     Add-Reg $path "/f"
 }
 
+function Get-ChildShellPath {
+    param($parentPath, $name)
+
+    return "$parentPath\shell\$name"
+}
+
+function Get-CommandPath {
+    param($path)
+
+    return "$path\command"
+}
+
+function Add-ContextMenuCommand {
+    param($parentPath, $name, $title, $position, $hasSubCommands, $command)
+
+    if ($parenPath -eq "" -or $name -eq "") {
+        return
+    }
+
+    $childShellPath = Get-ChildShellPath $parentPath $name
+    Add-RegFolder $childShellPath
+
+    if ($title -ne "") {
+        Add-RegEntry $childShellPath "MUIVerb" "REG_SZ" $title
+    }
+
+    if ($position -ne "") {
+        Add-RegEntry $childShellPath "Position" "REG_SZ" $position
+    }
+
+    if ($hasSubCommands -eq "true") {
+        Add-RegEntry $childShellPath "SubCommands" "REG_SZ" ""
+    }
+
+    if ($command -ne "") {
+        $commandPath = Get-CommandPath $childShellPath
+        Add-RegFolder $commandPath
+        Add-RegDefaultEntry $commandPath $command
+    }
+}
+
 function Add-ContextMenuItemForType {
     param($type)
 
-    $path = "HKCR\$type\shell\$name"
-    $commandPath = "$path\command"
-
-    Add-RegFolder $path
-    Add-RegEntry $path "MUIVerb" "REG_SZ" $name
-    Add-RegEntry $path "Position" "REG_SZ" $position
-    Add-RegFolder $commandPath
-    Add-RegDefaultEntry $commandPath $command
+    Add-ContextMenuCommand "HKCR\$type" $name $name $position "false" $command
 }
 
 Add-ContextMenuItemForType "*"
