@@ -39,7 +39,7 @@ function Get-CommandPath {
 function Add-ContextMenuCommand {
     param($parentPath, $name, $title, $position, $hasSubCommands, $command)
 
-    if ($parenPath -eq "" -or $name -eq "") {
+    if ($parentPath -eq "" -or $name -eq "") {
         return
     }
 
