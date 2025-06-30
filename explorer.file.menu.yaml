@@ -15,12 +15,6 @@ commands:
           -File
           "{{APPDIR}}\file.ps1"
           ""%1""
-      1_2_compress:
-        title: Сжать
-        command: ""
-      2_1_configure:
-        title: Настроить
-        command: ""
       2_2_update:
         title: Обновить
         command: >-
