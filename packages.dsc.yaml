@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: "0.2.0"
+  resources:
+    - resource: Environment
+      directives:
+        description: Add 7z to PATH
+        allowPrerelease: true
+      settings:
+        name: PATH
+        path: true
+        ensure: Present
+        value: "%ProgramFiles%\\7-Zip"

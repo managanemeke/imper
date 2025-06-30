@@ -7,5 +7,6 @@
 !/install.ps1
 !/install_dependencies.ps1
 !/install_file.ps1
+!/packages.dsc.yaml
 !/packages.json
 !/readme.md
