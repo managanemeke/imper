@@ -3,9 +3,6 @@
 [Console]::InputEncoding = [System.Text.Encoding]::UTF8
 
 $scriptPath = $PSScriptRoot
-$name = "Ночная статика"
-$position = "Bottom"
-$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
 
 function Add-Reg {
     param($path, $arguments)
@@ -68,10 +65,5 @@ function Add-ContextMenuCommand {
     }
 }
 
-function Add-ContextMenuItemForType {
-    param($type)
-
-    Add-ContextMenuCommand "HKCR\$type" $name $name $position "false" $command
-}
-
-Add-ContextMenuItemForType "*"
+$command = "`"$((Get-Command powershell).Source)`" -NoProfile -ExecutionPolicy Bypass -File `"$scriptPath\file.ps1`" `"`"`%1`"`""
+Add-ContextMenuCommand "HKCR\*" "Ночная статика" "Ночная статика" "Bottom" "false" $command
