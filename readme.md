@@ -20,10 +20,6 @@ git clone --recursive git@github.com:managanemeke/imper.git
 ## test
 
 ```shell
-python -m pip install httpie
-```
-
-```shell
 https --download "https://placehold.co/1408x576/jpg" --output "1408x576.jpg"
 ```
 

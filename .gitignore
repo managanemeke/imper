@@ -11,6 +11,7 @@
 !/file.ps1
 !/install.ps1
 !/install_dependencies.ps1
+!/install_dependencies_python.ps1
 !/install_menu.ps1
 !/packages.dsc.yaml
 !/packages.json
