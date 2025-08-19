@@ -4,7 +4,6 @@
 !/commands/*/.gitignore
 !/commands/*/*.ps1
 !/.gitignore
-!/.gitmodules
 !/check_dependencies.ps1
 !/explorer.file.menu.yaml
 !/file.ps1
