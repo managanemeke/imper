@@ -13,7 +13,7 @@ commands:
           -ExecutionPolicy
           Bypass
           -File
-          "{{APPDIR}}\file.ps1"
+          "{{APPDIR}}\commands\1_1_nightify\file.ps1"
           ""%1""
       2_2_update:
         title: Обновить

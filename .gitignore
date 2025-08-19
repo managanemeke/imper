@@ -6,7 +6,6 @@
 !/.gitignore
 !/check_dependencies.ps1
 !/explorer.file.menu.yaml
-!/file.ps1
 !/install.ps1
 !/install_dependencies.ps1
 !/install_dependencies_python.ps1
