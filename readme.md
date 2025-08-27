@@ -27,6 +27,34 @@ https --download "https://placehold.co/1408x576/jpg" --output "1408x576.jpg"
 ./commands/1_1_nightify/file.ps1 "1408x576.jpg"
 ```
 
+## install
+
+### menu
+
+```shell
+Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PWD\install_menu.ps1`" `"$PWD\explorer.file.menu.yaml`"" -Verb RunAs -Wait
+```
+
+### dependencies
+
+```shell
+.\install_dependencies.ps1
+```
+
+### python-dependencies
+
+```shell
+.\install_dependencies_python.ps1
+```
+
+## check
+
+### dependencies
+
+```shell
+.\check_dependencies.ps1
+```
+
 ## delete
 
 ### menu
