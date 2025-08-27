@@ -26,3 +26,11 @@ https --download "https://placehold.co/1408x576/jpg" --output "1408x576.jpg"
 ```shell
 ./commands/1_1_nightify/file.ps1 "1408x576.jpg"
 ```
+
+## delete
+
+### menu
+
+```shell
+Start-Process powershell -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$PWD\delete_menu.ps1`" `"$PWD\explorer.file.menu.yaml`"" -Verb RunAs -Wait
+```

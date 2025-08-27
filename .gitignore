@@ -5,6 +5,7 @@
 !/commands/*/*.ps1
 !/.gitignore
 !/check_dependencies.ps1
+!/delete_menu.ps1
 !/explorer.file.menu.yaml
 !/install.ps1
 !/install_dependencies.ps1
