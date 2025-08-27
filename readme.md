@@ -32,7 +32,7 @@ https --download "https://placehold.co/1408x576/jpg" --output "1408x576.jpg"
 ### locate
 
 ```shell
-$locatePath = "C:\ProgramData\imper"
+$locatePath = "$env:PROGRAMDATA\maer\imper"
 New-Item -Path $locatePath -ItemType Directory -Force
 Copy-Item -Path "..\imper\*" -Destination $locatePath -Recurse -Force
 Set-Location -Path $locatePath
