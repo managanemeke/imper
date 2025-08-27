@@ -6,7 +6,7 @@ Add-Type -AssemblyName System.Drawing
 Add-Type -AssemblyName System.Windows.Forms
 
 $scriptPath = $PSScriptRoot
-$structures = Import-Csv -Path "$scriptPath\structures\structures.csv" -Delimiter ";"
+$structures = Import-Csv -Path "$scriptPath\..\..\structures\structures.csv" -Delimiter ";"
 
 function ConvertTo-Mp4Video {
     param($inputPath, $outputPath, $duration, $fade_in, $fade_out)
