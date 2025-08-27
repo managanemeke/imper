@@ -1,4 +1,4 @@
-$scriptDirectory = $PSScriptRoot
+﻿$scriptDirectory = $PSScriptRoot
 
 Set-Location -Path $scriptDirectory
 Set-Location ..
